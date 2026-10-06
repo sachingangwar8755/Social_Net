@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}Search · SocialNet{% endblock %}
+{% block content %}<div class="wrap"><div class="section-title"><div><p class="eyebrow">DISCOVER</p><h2>Find People</h2></div></div>
+<form class="search standalone" action="{{ url_for('search') }}"><input name="q" value="{{ query }}" autofocus placeholder="Search name, username or email…"><button class="btn primary">Search</button></form>
+<div class="grid">{% for u in results %}<article class="person"><img src="{{ url_for('static',filename='uploads/'+u['profile_picture']) }}"><h3>{{ u['name'] }}</h3><p>@{{ u['username'] }}</p><a class="text-link" href="{{ url_for('view_user', user_id=u['id']) }}">View profile</a>
+{% if u['status']=='none' %}<form method="post" action="{{ url_for('send_request', receiver_id=u['id']) }}"><button class="btn small primary">＋ Invite</button></form>
+{% elif u['status']=='pending_sent' %}<form method="post" action="{{ url_for('cancel_request', receiver_id=u['id']) }}"><button class="btn small ghost">Pending · Cancel</button></form>
+{% elif u['status']=='pending_received' %}<span class="status">Request received</span>
+{% else %}<a class="btn small ghost" href="{{ url_for('chat', user_id=u['id']) }}">Friends · Chat</a>{% endif %}
+</article>{% else %}<div class="empty">{% if query %}No users found for “{{ query }}”.{% else %}Enter a name or username above to search.{% endif %}</div>{% endfor %}</div></div>{% endblock %}

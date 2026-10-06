@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}Admin Login{% endblock %}
+{% block content %}<div class="center"><section class="card auth-card narrow"><div class="logo">⚙</div><p class="eyebrow">ADMINISTRATOR</p><h2>Control Center</h2><p class="muted">Manage registered users and monitor the system.</p>
+<form method="post"><label>Admin Username</label><input name="username" required value="admin"><label>Password</label><input name="password" type="password" required><button class="btn primary full">Open Dashboard →</button></form>
+<p class="switch"><a href="{{ url_for('login') }}">← User Login</a></p><p class="hint">Demo: weno007 / boizer_54</p></section></div>{% endblock %}

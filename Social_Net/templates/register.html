@@ -1,0 +1,16 @@
+{% extends "base.html" %}{% block title %}Register · SocialNet{% endblock %}
+{% block content %}
+<div class="auth">
+<section class="auth-copy"><div class="logo">S</div><p class="eyebrow">JOIN SOCIALNET</p><h1>Create your<br><em>identity.</em></h1><p>Your username is your login ID. Create it once and use it every time you sign in.</p><div class="pills"><span>✓ Username login</span><span>✓ Friend requests</span><span>✓ Private chat</span></div></section>
+<section class="card auth-card"><p class="eyebrow">GET STARTED</p><h2>Create account</h2><p class="muted">Fill in all fields to create your account.</p>
+<form method="post">
+<label>Full Name</label><input name="name" required placeholder="e.g. Sachin Gangwar">
+<label>Username</label><input name="username" required minlength="3" placeholder="e.g. sachin01">
+<label>Email / Gmail</label><input name="email" type="email" required placeholder="you@gmail.com">
+<div class="two"><div><label>Password</label><input name="password" type="password" minlength="6" required></div><div><label>Confirm Password</label><input name="confirm_password" type="password" minlength="6" required></div></div>
+<button class="btn primary full">Create Account →</button>
+</form>
+<p class="switch">Already registered? <a href="{{ url_for('login') }}">Login here</a></p>
+</section>
+</div>
+{% endblock %}

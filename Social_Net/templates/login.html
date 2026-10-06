@@ -1,0 +1,15 @@
+{% extends "base.html" %}{% block title %}Login · SocialNet{% endblock %}
+{% block content %}
+<div class="auth">
+<section class="auth-copy"><div class="logo">S</div><p class="eyebrow">SOCIAL NETWORK</p><h1>Connect.<br>Chat.<br><em>Stay closer.</em></h1><p>Manage your friends, invitations, favourites and conversations from one simple platform.</p></section>
+<section class="card auth-card"><p class="eyebrow">WELCOME BACK</p><h2>Sign in</h2><p class="muted">Login with the username you created during registration.</p>
+<form method="post">
+<label>Username</label><input name="username" required autocomplete="username" placeholder="e.g. sachin01">
+<label>Password</label><input name="password" type="password" required autocomplete="current-password" placeholder="Your password">
+<button class="btn primary full">Login →</button>
+</form>
+<p class="switch">New here? <a href="{{ url_for('register') }}">Create account</a></p>
+<a class="admin-link" href="{{ url_for('admin_login') }}">⚙ Admin Login</a>
+</section>
+</div>
+{% endblock %}
